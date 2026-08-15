@@ -1,7 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" data-trae-theme="light"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Welcome to A Xisihuairen's website</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,12 +31,9 @@
     line-height: 1.6;
   }
 
-  /* 顶部导航 */
   header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 0; left: 0; right: 0;
     padding: 18px 40px;
     display: flex;
     justify-content: space-between;
@@ -93,6 +91,7 @@
     transform: translateY(-6px);
     transition: all 0.25s ease;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    z-index: 110;
   }
 
   .lang-dropdown.show {
@@ -103,7 +102,6 @@
 
   .lang-dropdown button {
     width: 100%;
-    justify-content: flex-start;
     border: none;
     padding: 10px 14px;
     background: transparent;
@@ -124,7 +122,6 @@
     color: var(--accent-2);
   }
 
-  /* Hero 主区 */
   main {
     padding: 140px 40px 80px;
     max-width: 1200px;
@@ -212,8 +209,9 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    flex: 0 0 auto;
-    min-width: 160px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
     line-height: 1.2;
   }
 
@@ -234,7 +232,6 @@
     box-shadow: 0 14px 30px rgba(66, 226, 245, 0.35);
   }
 
-  /* 卡片区 */
   .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -269,7 +266,6 @@
   .card h3 { font-size: 1.2rem; margin-bottom: 10px; }
   .card p { color: var(--muted); font-size: 0.95rem; }
 
-  /* 页脚 */
   footer {
     margin-top: 120px;
     padding: 60px 40px 30px;
@@ -296,648 +292,9 @@
     header { padding: 14px 20px; }
     main { padding: 120px 20px 60px; }
     .hero { padding: 50px 10px 70px; }
-    .btn { min-width: 140px; }
   }
 </style>
-<script>document.documentElement.setAttribute('data-trae-theme', "light");window.__TRAE_DISABLE_LEGACY_ADD_TO_CHAT__=true;</script><style data-trae-edit-ui="true" id="trae-previewer-tools-styles">:root {
-  --trae-layer-browser-inspect-overlay: 90000;
-  --trae-layer-browser-inspect-highlight: 90010;
-  --trae-layer-browser-inspect-action: 90020;
-  --trae-layer-text-selection-action: 90030;
-  --trae-layer-edit-tooltip: 100095;
-}
-:root,
-[data-trae-theme='dark'] {
-  --trae-bg-base-default: #171717;
-  --trae-bg-menu: #222427;
-  --trae-bg-overlay-l1: rgba(255, 255, 255, 0.04);
-  --trae-bg-overlay-l2: rgba(255, 255, 255, 0.08);
-  --trae-bg-overlay-l3: rgba(255, 255, 255, 0.12);
-  --trae-bg-overlay-l4: rgba(255, 255, 255, 0.16);
-  --trae-bg-invert: #f5f9fe;
-  --trae-bg-invert-hover: #e8ecf0;
-  --trae-bg-invert-active: #dce0e4;
-  --trae-bg-invert-disabled: rgba(224, 226, 242, 0.12);
-  --trae-border-l1: #e0e2f217;
-  --trae-border-l2: rgba(255, 255, 255, 0.12);
-  --trae-border-l3: rgba(255, 255, 255, 0.08);
-  --trae-border-neutral-l3: rgba(229, 229, 229, 0.20);
-  --trae-border-brand: #6a6fff;
-  --trae-text-default: #f5f9fe;
-  --trae-text-default-hover: #f5f9fe;
-  --trae-text-default-active: #f5f9fe;
-  --trae-text-secondary: rgba(245, 249, 254, 0.5);
-  --trae-text-tertiary: rgba(245, 249, 254, 0.4);
-  --trae-text-disabled: #666b75;
-  --trae-text-onaccent: #222427;
-  --trae-icon-default: #f5f9fe;
-  --trae-icon-secondary: rgba(245, 249, 254, 0.5);
-  --trae-icon-brand: #6a6fff;
-  --trae-icon-onaccent: #222427;
-  --trae-status-success: #22c55e;
-  --trae-status-primary: #3b82f6;
-  --trae-status-primary-default: #387bff;
-  --trae-status-primary-surface-l1: rgba(53, 121, 255, 0.18);
-  --trae-status-success-default: #33c192;
-  --trae-status-success-surface-l1: rgba(0, 165, 110, 0.18);
-  --trae-status-error-default: #f65a5a;
-  --trae-status-error-surface-l1: rgba(246, 70, 70, 0.18);
-  --trae-annotation-marker-bg: #4b3fe3;
-  --trae-annotation-marker-text: #ffffff;
-  --trae-annotation-region-border: var(--trae-status-primary-default);
-  --trae-region-outside-mask-bg: rgba(0, 0, 0, 0.32);
-  --trae-annotation-rect-border: var(--trae-status-error-default);
-  --trae-annotation-arrow-anchor-bg: var(--trae-status-primary-default);
-  --trae-panel-shadow: 0px 6px 24px -1px rgba(0, 0, 0, 0.16);
-  --trae-floating-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
-  --trae-shadow-elevation-50: 0 1px 2px -1px rgba(0, 0, 0, 0.45);
-  --trae-tab-active-shadow: 0px 1px 2px -1px rgba(0, 0, 0, 0.16);
-}
-
-[data-trae-theme='light'] {
-  --trae-bg-base-default: #fafafa;
-  --trae-bg-menu: #ffffff;
-  --trae-bg-overlay-l1: rgba(0, 0, 0, 0.04);
-  --trae-bg-overlay-l2: rgba(0, 0, 0, 0.06);
-  --trae-bg-overlay-l3: rgba(0, 0, 0, 0.08);
-  --trae-bg-overlay-l4: rgba(0, 0, 0, 0.12);
-  --trae-bg-invert: #1f2328;
-  --trae-bg-invert-hover: #32383f;
-  --trae-bg-invert-active: #444d56;
-  --trae-bg-invert-disabled: rgba(115, 115, 115, 0.20);
-  --trae-border-l1: rgba(0, 0, 0, 0.1);
-  --trae-border-l2: rgba(0, 0, 0, 0.12);
-  --trae-border-l3: rgba(0, 0, 0, 0.08);
-  --trae-border-neutral-l3: rgba(115, 115, 115, 0.36);
-  --trae-border-brand: #4b3fe3;
-  --trae-text-default: #1f2328;
-  --trae-text-default-hover: #111214;
-  --trae-text-default-active: #111214;
-  --trae-text-secondary: rgba(31, 35, 40, 0.5);
-  --trae-text-tertiary: rgba(31, 35, 40, 0.4);
-  --trae-text-disabled: #a1a1a1;
-  --trae-text-onaccent: #ffffff;
-  --trae-icon-default: #1f2328;
-  --trae-icon-secondary: rgba(31, 35, 40, 0.5);
-  --trae-icon-brand: #4b3fe3;
-  --trae-icon-onaccent: #ffffff;
-  --trae-status-success: #22c55e;
-  --trae-status-primary: #3b82f6;
-  --trae-status-primary-default: #2f74ff;
-  --trae-status-primary-surface-l1: rgba(47, 116, 255, 0.12);
-  --trae-status-success-default: #15a877;
-  --trae-status-success-surface-l1: rgba(64, 176, 139, 0.12);
-  --trae-status-error-default: #e8463a;
-  --trae-status-error-surface-l1: rgba(232, 70, 58, 0.12);
-  --trae-annotation-marker-bg: #4b3fe3;
-  --trae-annotation-marker-text: #ffffff;
-  --trae-annotation-region-border: var(--trae-status-primary-default);
-  --trae-region-outside-mask-bg: rgba(0, 0, 0, 0.18);
-  --trae-annotation-rect-border: var(--trae-status-error-default);
-  --trae-annotation-arrow-anchor-bg: var(--trae-status-primary-default);
-  --trae-panel-shadow: 0px 6px 24px -1px rgba(24, 24, 24, 0.06);
-  --trae-floating-shadow: 0px 2px 8px 0px rgba(24, 24, 24, 0.2);
-  --trae-shadow-elevation-50: 0 1px 2px -1px rgba(24, 24, 24, 0.08);
-  --trae-tab-active-shadow: 0px 1px 2px -1px rgba(24, 24, 24, 0.08);
-}
-
-@keyframes trae-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.trae-edit-mode-active body *:not([data-trae-edit-ui]):not([data-trae-edit-ui] *) {
-  transition: none !important;
-  animation-play-state: paused !important;
-}
-
-.trae-browser-inspect-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: var(--trae-layer-browser-inspect-overlay);
-  pointer-events: auto;
-  background: transparent;
-}
-
-.trae-browser-inspect-highlight-box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: var(--trae-layer-browser-inspect-highlight);
-  display: none;
-}
-
-.trae-browser-inspect-highlight-tag {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  height: 18px;
-  padding: 0 6px;
-  box-sizing: border-box;
-  border-radius: 4px;
-  background-color: var(--trae-status-success-default);
-  color: var(--trae-text-onaccent);
-  font-size: 12px;
-  font-weight: 400;
-  display: none;
-  align-items: center;
-  z-index: var(--trae-layer-browser-inspect-action);
-}
-
-.trae-browser-inspect-highlight-box-show {
-  display: flex;
-}
-
-.trae-browser-inspect-highlight-tag.trae-browser-inspect-highlight-box-show {
-  display: none;
-}
-
-.trae-browser-inspect-select-button.trae-browser-inspect-highlight-box-show {
-  display: block !important;
-}
-
-.trae-browser-inspect-select-button {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
-  z-index: var(--trae-layer-browser-inspect-action);
-}
-
-.trae-browser-inspect-select-highlight-box {
-  background: transparent !important;
-}
-
-.trae-browser-inspect-select-highlight-box .trae-browser-inspect-highlight-tag {
-  background-color: var(--trae-status-success-default);
-}
-
-.trae-add-to-chat-card {
-  display: block;
-  overflow: hidden;
-  background: var(--trae-bg-menu);
-  border: 1px solid var(--trae-border-l1);
-  border-radius: 8px;
-  box-shadow: var(--trae-floating-shadow);
-  transition:
-    width 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    height 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.trae-add-to-chat-content {
-  position: relative;
-  width: max-content;
-}
-
-.trae-fade-exit {
-  opacity: 0;
-  transition: opacity 0.15s ease-out;
-}
-
-.trae-fade-enter {
-  opacity: 1;
-  transition: opacity 0.2s ease-in;
-}
-
-.trae-buttons-view {
-  display: flex;
-  align-items: center;
-  gap: 0;
-  padding: 4px;
-  background: transparent;
-}
-
-.trae-action-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px 8px;
-  background: transparent;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transform: none !important;
-  transition: none !important;
-  animation: none !important;
-}
-
-.trae-action-button:hover {
-  background: var(--trae-bg-overlay-l2);
-}
-
-.trae-action-button:active {
-  background: var(--trae-bg-overlay-l3);
-}
-
-.trae-action-button:focus-visible {
-  outline: 2px solid var(--trae-status-primary);
-  outline-offset: 1px;
-}
-
-.trae-action-button-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  color: var(--trae-icon-default);
-  flex-shrink: 0;
-}
-
-.trae-action-button-title {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  color: var(--trae-text-default);
-  white-space: nowrap;
-}
-
-.trae-edit-toolbar-button-active {
-  background: var(--trae-status-primary-surface-l1) !important;
-  color: var(--trae-status-primary-default) !important;
-}
-
-.trae-edit-toolbar button[data-action='alignment-dropdown']:hover,
-.trae-edit-toolbar button[data-action='text-align-dropdown']:hover,
-.trae-edit-toolbar button[data-action='font-decrease']:hover,
-.trae-edit-toolbar button[data-action='font-increase']:hover,
-.trae-edit-toolbar button[data-action^='align-']:hover {
-  border-radius: 8px;
-  background: var(--bg-bg-overlay-l1, rgba(115, 115, 115, 0.08)) !important;
-}
-
-.trae-edit-toolbar button[data-action='alignment-dropdown']:active,
-.trae-edit-toolbar button[data-action='text-align-dropdown']:active,
-.trae-edit-toolbar button[data-action='font-decrease']:active,
-.trae-edit-toolbar button[data-action='font-increase']:active,
-.trae-edit-toolbar button[data-action^='align-']:active {
-  border-radius: 8px;
-  background: var(--bg-bg-overlay-l2, rgba(115, 115, 115, 0.12)) !important;
-}
-
-.trae-comment-input {
-  background: transparent;
-  color: var(--trae-text-default);
-  caret-color: var(--trae-text-default);
-}
-
-.trae-comment-input::placeholder {
-  color: var(--trae-text-tertiary);
-}
-
-.trae-edit-panel [data-trae-tooltip] {
-  position: relative;
-}
-
-.trae-edit-panel [data-trae-tooltip]::after {
-  content: attr(data-trae-tooltip);
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 8px);
-  z-index: var(--trae-layer-edit-tooltip);
-  padding: 6px 10px;
-  border-radius: 6px;
-  background: var(--bg-bg-invert, var(--trae-bg-invert));
-  color: var(--text-text-onaccent, var(--trae-text-onaccent));
-  box-shadow: var(--trae-floating-shadow);
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'PingFang SC', sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  letter-spacing: 0.039px;
-  white-space: nowrap;
-  pointer-events: none;
-  box-sizing: border-box;
-  opacity: 0;
-  transform: translateX(-50%);
-  visibility: hidden;
-}
-
-.trae-edit-panel [data-trae-tooltip]::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 5px);
-  z-index: var(--trae-layer-edit-tooltip);
-  width: 8px;
-  height: 4px;
-  background: var(--bg-bg-invert, var(--trae-bg-invert));
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  transform: translateX(-50%);
-  pointer-events: none;
-  opacity: 0;
-  visibility: hidden;
-}
-
-.trae-edit-panel [data-trae-tooltip]:hover::after,
-.trae-edit-panel [data-trae-tooltip]:focus-visible::after,
-.trae-edit-panel [data-trae-tooltip]:hover::before,
-.trae-edit-panel [data-trae-tooltip]:focus-visible::before {
-  opacity: 1;
-  visibility: visible;
-}
-
-.trae-comment-btn {
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-}
-
-.trae-comment-btn:disabled {
-  cursor: not-allowed;
-}
-
-.trae-comment-btn:focus-visible {
-  outline: 2px solid var(--trae-status-primary);
-  outline-offset: 1px;
-}
-
-.trae-comment-btn-primary {
-  background: var(--trae-bg-invert);
-  color: var(--trae-text-onaccent);
-}
-
-.trae-comment-btn-primary:hover:not(:disabled) {
-  background: var(--trae-bg-invert-hover);
-}
-
-.trae-comment-btn-primary:active:not(:disabled) {
-  background: var(--trae-bg-invert-active);
-}
-
-.trae-comment-btn-primary:disabled {
-  background: var(--trae-bg-invert-disabled);
-  color: var(--trae-text-disabled);
-}
-
-.trae-comment-btn-secondary {
-  background: var(--trae-bg-overlay-l2);
-  color: var(--trae-text-default);
-}
-
-.trae-comment-btn-secondary:hover:not(:disabled) {
-  background: var(--trae-bg-overlay-l3);
-}
-
-.trae-comment-btn-secondary:active:not(:disabled) {
-  background: var(--trae-bg-overlay-l4);
-}
-
-.trae-comment-btn-secondary:disabled {
-  background: var(--trae-bg-overlay-l2);
-  color: var(--trae-text-disabled);
-}
-
-.trae-comment-btn-text {
-  background: transparent;
-  color: var(--trae-text-default);
-}
-
-.trae-comment-btn-text:hover:not(:disabled) {
-  border-radius: 8px;
-  background: var(--bg-bg-overlay-l1, var(--trae-bg-overlay-l1));
-  color: var(--trae-text-default-hover);
-}
-
-.trae-comment-btn-text:active:not(:disabled) {
-  border-radius: 8px;
-  background: var(--trae-bg-overlay-l2);
-  color: var(--trae-text-default-active);
-}
-
-.trae-comment-btn-text:disabled {
-  background: transparent;
-  color: var(--trae-text-disabled);
-}
-
-.trae-marking-btn {
-  justify-content: center;
-}
-
-.trae-marking-btn:hover:not(:disabled) {
-  background: var(--trae-bg-overlay-l1) !important;
-}
-
-.trae-marking-btn:active:not(:disabled) {
-  background: var(--trae-bg-overlay-l2) !important;
-}
-
-.trae-marking-btn-active {
-  background: var(--trae-status-primary-surface-l1) !important;
-  color: var(--trae-status-primary-default) !important;
-}
-
-.trae-marking-btn:disabled {
-  color: var(--trae-text-disabled) !important;
-  cursor: not-allowed !important;
-}
-
-.trae-action-button-shortcut {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  color: var(--trae-icon-secondary);
-  flex-shrink: 0;
-}
-
-.trae-shortcut-container {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.trae-shortcut-key {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 12px;
-  color: var(--trae-icon-secondary);
-}
-
-.trae-add-to-chat-divider {
-  width: 2px;
-  height: 12px;
-  padding: 0 6px;
-  box-sizing: content-box;
-  background-clip: content-box;
-  background-color: var(--trae-border-l2);
-  flex-shrink: 0;
-}
-
-.trae-editor-view {
-  display: flex;
-  flex-direction: column;
-  width: 320px;
-  padding: 8px;
-  background: transparent;
-}
-
-.trae-editor-text-container {
-  display: flex;
-  align-items: center;
-  padding: 8px;
-  background: var(--trae-bg-overlay-l1);
-  border: 1px solid var(--trae-border-l3);
-  border-radius: 4px;
-  gap: 8px;
-}
-
-.trae-editor-textarea {
-  flex: 1;
-  padding: 0 2px;
-  border: none;
-  background: transparent;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 20px;
-  color: var(--trae-text-default);
-  resize: none;
-  outline: none;
-  overflow-y: auto;
-  max-height: 140px;
-}
-
-.trae-editor-textarea::placeholder {
-  color: var(--trae-text-tertiary);
-}
-
-.trae-editor-action-bar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition:
-    max-height 0.2s ease-out,
-    opacity 0.2s ease-out,
-    margin-top 0.2s ease-out;
-}
-
-.trae-editor-action-bar-visible {
-  max-height: 32px;
-  opacity: 1;
-  margin-top: 8px;
-}
-
-.trae-editor-cancel-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 24px;
-  padding: 0 4px;
-  background: var(--trae-bg-overlay-l2);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-}
-
-.trae-editor-cancel-button:hover {
-  background: var(--trae-bg-overlay-l3);
-}
-
-.trae-editor-cancel-button:active {
-  background: var(--trae-bg-overlay-l3);
-}
-
-.trae-editor-cancel-button:focus-visible {
-  outline: 2px solid var(--trae-status-primary);
-  outline-offset: 1px;
-}
-
-.trae-editor-cancel-text {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  color: var(--trae-text-default);
-  white-space: nowrap;
-  padding: 0 4px;
-}
-
-.trae-editor-submit-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 24px;
-  padding: 0 8px;
-  background: var(--trae-bg-invert);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.15s ease;
-}
-
-.trae-editor-submit-button:hover {
-  background: var(--trae-bg-invert-hover);
-}
-
-.trae-editor-submit-button:active {
-  background: var(--trae-bg-invert-active);
-}
-
-.trae-editor-submit-button:focus-visible {
-  outline: 2px solid var(--trae-status-primary);
-  outline-offset: 1px;
-}
-
-.trae-editor-submit-text {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 16px;
-  color: var(--trae-text-onaccent);
-  white-space: nowrap;
-  padding: 0 4px;
-}
-
-.trae-editor-submit-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 12px;
-  height: 12px;
-  color: var(--trae-icon-onaccent);
-  flex-shrink: 0;
-}
-
-.trae-success-view {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 0 12px;
-  height: 32px;
-  white-space: nowrap;
-}
-
-.trae-success-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  color: var(--trae-status-success);
-  flex-shrink: 0;
-}
-
-.trae-success-text {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 18px;
-  color: var(--trae-text-default);
-  user-select: none;
-}
-</style></head>
+</head>
 <body>
 
 <header>
@@ -963,11 +320,14 @@
   <section class="hero">
     <div class="tag" data-x="tag">Welcome to my personal homepage</div>
     <h1 data-x="title">Welcome to A Xisihuairen's website</h1>
-    <p class="lead" data-x="subtitle">This is the personal homepage of A Xisihuairen (Bilibili streamer), sharing gaming, music and life highlights.</p>
+    <p class="lead" data-x="subtitle">
+      This is the personal homepage of A Xisihuairen (Bilibili streamer), sharing gaming, programming and life highlights.
+    </p>
     <div class="cta">
       <a href="#contact" class="btn btn-primary" data-x="cta1">📧 Contact Me</a>
       <a href="https://space.bilibili.com/" target="_blank" class="btn btn-secondary" data-x="cta2">🎬 Bilibili Space</a>
       <a href="surf.html" class="btn btn-secondary" data-x="cta3">🏄 Surf Game</a>
+      <a href="pz.html" class="btn btn-secondary" data-x="cta4">🌻 PvZ Fusion</a>
     </div>
   </section>
 
@@ -978,19 +338,14 @@
       <p data-x="f1d">Exciting game plays, daily updates — let's enjoy every moment together.</p>
     </div>
     <div class="card">
-      <div class="icon">🎵</div>
-      <h3 data-x="f2t">Music Sharing</h3>
-      <p data-x="f2d">I love music, occasionally do covers, capturing life's warmth through melodies.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🎬</div>
-      <h3 data-x="f3t">Daily Vlog</h3>
-      <p data-x="f3d">Documenting my authentic self, sharing fun stories and behind-the-scenes moments.</p>
+      <div class="icon">💻</div>
+      <h3 data-x="f2t">写点程序</h3>
+      <p data-x="f2d">记录编程学习与小项目开发，分享踩坑经验和有趣的代码作品。</p>
     </div>
     <div class="card">
       <div class="icon">💬</div>
-      <h3 data-x="f4t">Fan Interaction</h3>
-      <p data-x="f4d">Thanks for every friend's support. Feel free to DM me anytime.</p>
+      <h3 data-x="f3t">Fan Interaction</h3>
+      <p data-x="f3d">Thanks for every friend's support. Feel free to DM me anytime.</p>
     </div>
   </section>
 </main>
@@ -1002,18 +357,17 @@
 </footer>
 
 <script>
-  // 默认英文文案
   const DEFAULT_TEXT = {
     tag: "Welcome to my personal homepage",
     title: "Welcome to A Xisihuairen's website",
-    subtitle: "This is the personal homepage of A Xisihuairen (Bilibili streamer), sharing gaming, music and life highlights.",
+    subtitle: "This is the personal homepage of A Xisihuairen (Bilibili streamer), sharing gaming, programming and life highlights.",
     cta1: "📧 Contact Me",
     cta2: "🎬 Bilibili Space",
     cta3: "🏄 Surf Game",
+    cta4: "🌻 PvZ Fusion",
     f1t: "Game Streaming", f1d: "Exciting game plays, daily updates — let's enjoy every moment together.",
-    f2t: "Music Sharing", f2d: "I love music, occasionally do covers, capturing life's warmth through melodies.",
-    f3t: "Daily Vlog", f3d: "Documenting my authentic self, sharing fun stories and behind-the-scenes moments.",
-    f4t: "Fan Interaction", f4d: "Thanks for every friend's support. Feel free to DM me anytime.",
+    f2t: "写点程序", f2d: "记录编程学习与小项目开发，分享踩坑经验和有趣的代码作品。",
+    f3t: "Fan Interaction", f3d: "Thanks for every friend's support. Feel free to DM me anytime.",
     emailLabel: "📩 Email"
   };
 
@@ -1022,74 +376,72 @@
     zh: {
       tag: "欢迎来到我的个人主页",
       title: "欢迎来到阿西四坏人的个人网站",
-      subtitle: "这里是阿西四坏人（B站主播）的个人主页，分享游戏、音乐与生活的精彩瞬间。",
+      subtitle: "这里是阿西四坏人（B站主播）的个人主页，分享游戏、编程与生活的精彩瞬间。",
       cta1: "📧 联系我",
       cta2: "🎬 B站空间",
       cta3: "🏄 玩冲浪游戏",
+      cta4: "🌻 PvZ融合版",
       f1t: "游戏直播", f1d: "精彩游戏实况，每日更新，一起畅玩每一个瞬间。",
-      f2t: "音乐分享", f2d: "热爱音乐，偶尔翻唱，用旋律记录生活的温度。",
-      f3t: "日常 Vlog", f3d: "记录真实的自己，分享有趣的故事与幕后花絮。",
-      f4t: "粉丝互动", f4d: "感谢每一位小伙伴的支持，欢迎私信与我交流。",
+      f2t: "写点程序", f2d: "记录编程学习与小项目开发，分享踩坑经验和有趣的代码作品。",
+      f3t: "粉丝互动", f3d: "感谢每一位小伙伴的支持，欢迎私信与我交流。",
       emailLabel: "📩 邮箱"
     },
     jp: {
       tag: "ホームページへようこそ",
       title: "A Xisihuairenのウェブサイトへようこそ",
-      subtitle: "こちらは阿西四坏人（Bilibili配信者）のホームページです。ゲーム・音楽・日常をシェアします。",
+      subtitle: "こちらは阿西四坏人（Bilibili配信者）のホームページです。ゲーム・プログラミング・日常をシェアします。",
       cta1: "📧 お問い合わせ",
       cta2: "🎬 Bilibiliスペース",
       cta3: "🏄 サーフゲーム",
+      cta4: "🌻 PvZ融合版",
       f1t: "ゲーム配信", f1d: "毎日更新の熱いゲーム実況、一緒に楽しみましょう。",
-      f2t: "音楽シェア", f2d: "音楽が大好きで、時々カバーもします。メロディで日常を記録。",
-      f3t: "日常Vlog", f3d: "ありのままの自分を記録。楽しいエピソードや裏話も。",
-      f4t: "ファン交流", f4d: "応援ありがとう！お気軽にDMください。",
+      f2t: "コーディング", f2d: "プログラミング学習と小規模プロジェクトの開発、面白い作品をシェアします。",
+      f3t: "ファン交流", f3d: "応援ありがとう！お気軽にDMください。",
       emailLabel: "📩 メール"
     },
     kr: {
       tag: "개인 홈페이지에 오신 것을 환영합니다",
       title: "A Xisihuairen의 웹사이트에 오신 것을 환영합니다",
-      subtitle: "아시사후아이렌(Bilibili 스트리머)의 개인 홈페이지입니다. 게임, 음악, 일상을 공유합니다.",
+      subtitle: "아시사후아이렌(Bilibili 스트리머)의 개인 홈페이지입니다. 게임, 프로그래밍, 일상을 공유합니다.",
       cta1: "📧 연락하기",
       cta2: "🎬 Bilibili 스페이스",
       cta3: "🏄 서핑 게임",
+      cta4: "🌻 PvZ 퓨전",
       f1t: "게임 방송", f1d: "매일 업데이트되는 짜릿한 게임 플레이, 함께 즐겨요!",
-      f2t: "음악 공유", f2d: "음악을 사랑하고 가끔 커버도 합니다. 멜로디로 일상을 기록.",
-      f3t: "일상 Vlog", f3d: "진솔한 일상과 재미있는 이야기, 비하인드를 공유합니다.",
-      f4t: "팬 소통", f4d: "응원해 주셔서 감사합니다! 언제든 DM 주세요.",
+      f2t: "코딩", f2d: "프로그래밍 학습과 작은 프로젝트 개발, 재미있는 코드 작품을 공유합니다.",
+      f3t: "팬 소통", f3d: "응원해 주셔서 감사합니다! 언제든 DM 주세요.",
       emailLabel: "📩 이메일"
     },
     es: {
       tag: "Bienvenido a mi página personal",
       title: "Bienvenido al sitio web de A Xisihuairen",
-      subtitle: "Esta es la página personal de A Xisihuairen (streamer de Bilibili), compartiendo juegos, música y momentos destacados.",
+      subtitle: "Esta es la página personal de A Xisihuairen (streamer de Bilibili), compartiendo juegos, programación y momentos destacados.",
       cta1: "📧 Contáctame",
       cta2: "🎬 Espacio Bilibili",
       cta3: "🏄 Juego de Surf",
+      cta4: "🌻 PvZ Fusion",
       f1t: "Streaming de juegos", f1d: "Partidas emocionantes, actualizadas a diario — disfrutemos juntos.",
-      f2t: "Compartir música", f2d: "Me encanta la música, a veces hago covers, capturando la vida en melodías.",
-      f3t: "Vlog diario", f3d: "Documento mi yo auténtico, comparto historias divertidas y momentos detrás de cámaras.",
-      f4t: "Interacción con fans", f4d: "¡Gracias por su apoyo! No duden en escribirme.",
+      f2t: "Programando", f2d: "Aprendizaje de programación y pequeños proyectos, compartiendo errores y obras divertidas.",
+      f3t: "Interacción con fans", f3d: "¡Gracias por su apoyo! No duden en escribirme.",
       emailLabel: "📩 Correo"
     },
     fr: {
       tag: "Bienvenue sur ma page personnelle",
       title: "Bienvenue sur le site web de A Xisihuairen",
-      subtitle: "Voici la page personnelle de A Xisihuairen (streameur Bilibili), partageant jeux, musique et moments de vie.",
+      subtitle: "Voici la page personnelle de A Xisihuairen (streameur Bilibili), partageant jeux, programmation et moments de vie.",
       cta1: "📧 Me contacter",
       cta2: "🎬 Espace Bilibili",
       cta3: "🏄 Jeu de Surf",
+      cta4: "🌻 PvZ Fusion",
       f1t: "Streaming de jeux", f1d: "Des parties passionnantes, mises à jour chaque jour — profitons ensemble.",
-      f2t: "Partage musical", f2d: "J'adore la musique, je fais parfois des reprises, la vie en mélodies.",
-      f3t: "Vlog quotidien", f3d: "Je documente mon authenticité, partage histoires amusantes et coulisses.",
-      f4t: "Interaction avec les fans", f4d: "Merci pour votre soutien ! N'hésitez pas à m'écrire.",
+      f2t: "Je code", f2d: "Apprentissage de la programmation et petits projets, partage d'erreurs et œuvres amusantes.",
+      f3t: "Interaction avec les fans", f3d: "Merci pour votre soutien ! N'hésitez pas à m'écrire.",
       emailLabel: "📩 Email"
     }
   };
 
   const langLabels = { en: "English", zh: "中文", jp: "日本語", kr: "한국어", es: "Español", fr: "Français" };
 
-  // 关键：先强制把所有 data-x 元素内容还原为默认英文
-  // 即使有预览脚本后面再次运行覆盖，我们的二次注入也会跑在 DOMContentLoaded 之后
   function restoreDefaults() {
     document.querySelectorAll("[data-x]").forEach(el => {
       const k = el.getAttribute("data-x");
@@ -1145,8 +497,6 @@
     });
   });
 
-  // 防御性兜底：即使 DOMContentLoaded 之前有脚本改写了文本，
-  // load 阶段和 100ms 后都再重新应用一次用户选择的语言
   window.addEventListener("load", () => {
     try {
       const saved = localStorage.getItem("x_lang") || "en";
@@ -1161,24 +511,5 @@
   }, 250);
 </script>
 
-
-
-<div data-trae-edit-ui="true"><div data-trae-edit-ui="true" class="trae-browser-inspect-highlight-tag"></div><div data-trae-edit-ui="true" class="trae-browser-inspect-highlight-tag"></div><div data-trae-edit-ui="true" class="trae-browser-inspect-highlight-box"></div><div data-trae-edit-ui="true" class="trae-browser-inspect-highlight-box trae-browser-inspect-select-highlight-box"></div><div data-trae-edit-ui="true" class="trae-add-to-chat-card trae-browser-inspect-select-button" style="display: none;"><div data-trae-edit-ui="true" class="trae-add-to-chat-content"><div data-trae-edit-ui="true" class="trae-buttons-view"><button data-trae-edit-ui="true" type="button" class="trae-action-button"><span data-trae-edit-ui="true" class="trae-action-button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <path d="M14.3332 8.0013C14.3332 11.3346 11.8702 13.3346 7.99984 13.3346C6.8331 13.3346 5.60267 13.2116 4.56857 12.668C4.56857 12.668 3.07391 13.7639 1.6665 13.0972C2.70858 11.7228 2.44754 10.7933 2.38257 10.6161C2.37481 10.595 2.36622 10.576 2.35754 10.5552C2.26265 10.3277 1.6665 8.86419 1.6665 8.0013C1.6665 4.66797 4.12947 2.66797 7.99984 2.66797" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
-    <path d="M5.99951 7.41797C6.32157 7.41797 6.58332 7.67896 6.5835 8.00098C6.5835 8.32314 6.32168 8.58496 5.99951 8.58496C5.6775 8.58479 5.4165 8.32303 5.4165 8.00098C5.41668 7.67907 5.6776 7.41814 5.99951 7.41797ZM9.99951 7.41797C10.3216 7.41797 10.5833 7.67896 10.5835 8.00098C10.5835 8.32314 10.3217 8.58496 9.99951 8.58496C9.6775 8.58479 9.4165 8.32303 9.4165 8.00098C9.41668 7.67907 9.6776 7.41814 9.99951 7.41797Z" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linecap="square"></path>
-    <path d="M15.001 4L13 3L12 1L11 3L9 4L11 5L12 7L13 5L15.001 4Z" fill="currentColor"></path>
-  </svg></span><span data-trae-edit-ui="true" class="trae-action-button-title" data-i18n="commentToChat">添加评论到对话</span><span data-trae-edit-ui="true" class="trae-action-button-shortcut"><span data-trae-edit-ui="true" class="trae-shortcut-container"><span data-trae-edit-ui="true" class="trae-shortcut-key">Ctrl</span><span data-trae-edit-ui="true" class="trae-shortcut-key">J</span></span></span></button><div data-trae-edit-ui="true" class="trae-add-to-chat-divider"></div><button data-trae-edit-ui="true" type="button" class="trae-action-button"><span data-trae-edit-ui="true" class="trae-action-button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <path d="M14.3333 8.0013C14.3333 4.66797 11.8703 2.66797 7.99996 2.66797C4.12959 2.66797 1.66663 4.66797 1.66663 8.0013C1.66663 8.86419 2.26277 10.3277 2.35767 10.5552C2.36634 10.576 2.37493 10.595 2.38269 10.6161C2.44766 10.7933 2.7087 11.7228 1.66663 13.0972C3.07403 13.7639 4.5687 12.668 4.5687 12.668C5.60279 13.2116 6.83323 13.3346 7.99996 13.3346C11.8703 13.3346 14.3333 11.3346 14.3333 8.0013Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"></path>
-    <path d="M4.99963 7.41797C5.32169 7.41797 5.58344 7.67896 5.58362 8.00098C5.58362 8.32314 5.3218 8.58496 4.99963 8.58496C4.67762 8.58479 4.41663 8.32303 4.41663 8.00098C4.4168 7.67907 4.67773 7.41814 4.99963 7.41797ZM7.99963 7.41797C8.32169 7.41797 8.58344 7.67896 8.58362 8.00098C8.58362 8.32314 8.3218 8.58496 7.99963 8.58496C7.67762 8.58479 7.41663 8.32303 7.41663 8.00098C7.4168 7.67907 7.67773 7.41814 7.99963 7.41797ZM10.9996 7.41797C11.3217 7.41797 11.5834 7.67896 11.5836 8.00098C11.5836 8.32314 11.3218 8.58496 10.9996 8.58496C10.6776 8.58479 10.4166 8.32303 10.4166 8.00098C10.4168 7.67907 10.6777 7.41814 10.9996 7.41797Z" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linecap="square"></path>
-  </svg></span><span data-trae-edit-ui="true" class="trae-action-button-title" data-i18n="addToChat">添加到对话</span><span data-trae-edit-ui="true" class="trae-action-button-shortcut"><span data-trae-edit-ui="true" class="trae-shortcut-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-    <path d="M9.5 3V6.5C9.5 7.05228 9.05228 7.5 8.5 7.5H3M3 7.5L5 5.5M3 7.5L5 9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
-  </svg></span></span></button></div></div></div><div data-trae-edit-ui="true" class="trae-browser-inspect-overlay" style="display: none;"></div></div><div data-trae-edit-ui="true" class="trae-add-to-chat-card" style="display: none; position: fixed; z-index: 90030;"><div data-trae-edit-ui="true" class="trae-add-to-chat-content"><div data-trae-edit-ui="true" class="trae-buttons-view"><button data-trae-edit-ui="true" type="button" class="trae-action-button"><span data-trae-edit-ui="true" class="trae-action-button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <path d="M14.3332 8.0013C14.3332 11.3346 11.8702 13.3346 7.99984 13.3346C6.8331 13.3346 5.60267 13.2116 4.56857 12.668C4.56857 12.668 3.07391 13.7639 1.6665 13.0972C2.70858 11.7228 2.44754 10.7933 2.38257 10.6161C2.37481 10.595 2.36622 10.576 2.35754 10.5552C2.26265 10.3277 1.6665 8.86419 1.6665 8.0013C1.6665 4.66797 4.12947 2.66797 7.99984 2.66797" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
-    <path d="M5.99951 7.41797C6.32157 7.41797 6.58332 7.67896 6.5835 8.00098C6.5835 8.32314 6.32168 8.58496 5.99951 8.58496C5.6775 8.58479 5.4165 8.32303 5.4165 8.00098C5.41668 7.67907 5.6776 7.41814 5.99951 7.41797ZM9.99951 7.41797C10.3216 7.41797 10.5833 7.67896 10.5835 8.00098C10.5835 8.32314 10.3217 8.58496 9.99951 8.58496C9.6775 8.58479 9.4165 8.32303 9.4165 8.00098C9.41668 7.67907 9.6776 7.41814 9.99951 7.41797Z" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linecap="square"></path>
-    <path d="M15.001 4L13 3L12 1L11 3L9 4L11 5L12 7L13 5L15.001 4Z" fill="currentColor"></path>
-  </svg></span><span data-trae-edit-ui="true" class="trae-action-button-title" data-i18n="commentToChat">添加评论到对话</span><span data-trae-edit-ui="true" class="trae-action-button-shortcut"><span data-trae-edit-ui="true" class="trae-shortcut-container"><span data-trae-edit-ui="true" class="trae-shortcut-key">Ctrl</span><span data-trae-edit-ui="true" class="trae-shortcut-key">J</span></span></span></button><div data-trae-edit-ui="true" class="trae-add-to-chat-divider"></div><button data-trae-edit-ui="true" type="button" class="trae-action-button"><span data-trae-edit-ui="true" class="trae-action-button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <path d="M14.3333 8.0013C14.3333 4.66797 11.8703 2.66797 7.99996 2.66797C4.12959 2.66797 1.66663 4.66797 1.66663 8.0013C1.66663 8.86419 2.26277 10.3277 2.35767 10.5552C2.36634 10.576 2.37493 10.595 2.38269 10.6161C2.44766 10.7933 2.7087 11.7228 1.66663 13.0972C3.07403 13.7639 4.5687 12.668 4.5687 12.668C5.60279 13.2116 6.83323 13.3346 7.99996 13.3346C11.8703 13.3346 14.3333 11.3346 14.3333 8.0013Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="square"></path>
-    <path d="M4.99963 7.41797C5.32169 7.41797 5.58344 7.67896 5.58362 8.00098C5.58362 8.32314 5.3218 8.58496 4.99963 8.58496C4.67762 8.58479 4.41663 8.32303 4.41663 8.00098C4.4168 7.67907 4.67773 7.41814 4.99963 7.41797ZM7.99963 7.41797C8.32169 7.41797 8.58344 7.67896 8.58362 8.00098C8.58362 8.32314 8.3218 8.58496 7.99963 8.58496C7.67762 8.58479 7.41663 8.32303 7.41663 8.00098C7.4168 7.67907 7.67773 7.41814 7.99963 7.41797ZM10.9996 7.41797C11.3217 7.41797 11.5834 7.67896 11.5836 8.00098C11.5836 8.32314 11.3218 8.58496 10.9996 8.58496C10.6776 8.58479 10.4166 8.32303 10.4166 8.00098C10.4168 7.67907 10.6777 7.41814 10.9996 7.41797Z" fill="currentColor" stroke="currentColor" stroke-width="0.5" stroke-linecap="square"></path>
-  </svg></span><span data-trae-edit-ui="true" class="trae-action-button-title" data-i18n="addToChat">添加到对话</span><span data-trae-edit-ui="true" class="trae-action-button-shortcut"><span data-trae-edit-ui="true" class="trae-shortcut-container"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-    <path d="M9.5 3V6.5C9.5 7.05228 9.05228 7.5 8.5 7.5H3M3 7.5L5 5.5M3 7.5L5 9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
-  </svg></span></span></button></div></div></div></body></html>
+</body>
+</html>
