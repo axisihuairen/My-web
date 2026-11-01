@@ -118,17 +118,17 @@ const ZROSTER = ['normal','cone','flag','bucket','door','pole','football','pogo'
 /* ============ 资源加载 ============ */
 const IMG = { plants:{}, zombies:{}, ui:{}, bg:{} };
 const SRC = {
-  bg: { day:'assets/bg/day.jpg', night:'assets/bg/night.jpg', pool:'assets/bg/pool.jpg', roof:'assets/bg/roof.jpg', menu:'assets/bg/menu.jpg' },
+  bg: { day:'day.jpg', night:'night.jpg', pool:'pool.jpg', roof:'roof.jpg', menu:'menu.jpg' },
   plants: {}, zombies:{}, ui:{
-    seedpacket:'assets/ui/seedpacket.png', seedbank:'assets/ui/seedbank.png', sun:'assets/ui/sun.png',
-    pea:'assets/ui/pea.png', snow:'assets/ui/snowpea_bullet.png', shovel:'assets/ui/shovel.png',
-    shovelbank:'assets/ui/shovelbank.png', chooser:'assets/ui/chooser_bg.png',
-    lawnmower:'assets/ui/lawnmower.png', cabbage:'assets/ui/cabbage_bullet.png',
-    melon:'assets/ui/melon_bullet.png', butter:'assets/ui/butter_bullet.png', kernel:'assets/ui/kernel_bullet.png'
+    seedpacket:'seedpacket.png', seedbank:'seedbank.png', sun:'sun.png',
+    pea:'pea.png', snow:'snowpea_bullet.png', shovel:'shovel.png',
+    shovelbank:'shovelbank.png', chooser:'chooser_bg.png',
+    lawnmower:'lawnmower.png', cabbage:'cabbage_bullet.png',
+    melon:'melon_bullet.png', butter:'butter_bullet.png', kernel:'kernel_bullet.png'
   }
 };
-Object.keys(PLANTS).forEach(k => SRC.plants[k] = `assets/plants/${k}.png`);
-Object.keys(ZOMBIES).forEach(k => SRC.zombies[k] = `assets/zombies/${k}.png`);
+Object.keys(PLANTS).forEach(k => SRC.plants[k] = `${k}.png`);
+Object.keys(ZOMBIES).forEach(k => SRC.zombies[k] = `${k}.png`);
 
 const AUDIO_NAMES = ['Day','Night','Pool','Roof','MainMenu','winmusic','LoseMusic','UltimateBattle',
   'Plant','Plant2','SeedLift','SelectCard','Tap','Tap2','Shoop','Splat','Splat2','Splat3','CherryBomb',
@@ -168,7 +168,7 @@ function sfx(name, vol = 0.6, rate = 1, throttle = 0) {
   if (throttle && sfxLast[name] && now - sfxLast[name] < throttle) return;
   sfxLast[name] = now;
   try {
-    const a = new Audio(`assets/audio/${name}.mp3`);
+    const a = new Audio(`${name}.mp3`);
     a.volume = Math.max(0, Math.min(1, vol));
     a.playbackRate = rate;
     a.play().catch(() => {});
@@ -180,7 +180,7 @@ function playMusic(name, vol = 0.55) {
   if (!name || musicName === name) return;
   if (music) { try { music.pause(); } catch (e) {} }
   musicName = name;
-  music = new Audio(`assets/audio/${name}.mp3`);
+  music = new Audio(`${name}.mp3`);
   music.loop = true;
   music.volume = vol;
   music.play().catch(() => {});
@@ -1267,7 +1267,7 @@ function openAlmanac() {
   sfx('Tap', 0.5);
   const cards = Object.keys(PLANTS).map(k => {
     const d = PLANTS[k];
-    return `<div class="pcard"><img src="assets/plants/${k}.png" alt="">
+    return `<div class="pcard"><img src="${k}.png" alt="">
       <div class="info"><div class="nm">${d.name}</div>
       <div class="meta">阳光 ${d.cost} · 冷却 ${d.cd}s${d.hp?' · 生命 '+d.hp:''}</div>
       <div class="ds">${d.desc}</div></div></div>`;
@@ -1296,7 +1296,7 @@ function openHelp() {
 function openLevelData() {
   sfx('Tap', 0.5);
   const data = window.ORIGINAL_LEVELS;
-  if (!data || !data.assets) { showOverlay('<h2>原版关卡资料</h2><p>未找到 data/levels.js。</p>'); return; }
+  if (!data || !data.assets) { showOverlay('<h2>原版关卡资料</h2><p>未找到 levels.js。</p>'); return; }
   const items = data.assets.map((a,i) => `<div class="lvItem" data-i="${i}"><span>${escapeHtml(a.name)}</span><span>${a.content.length} 字符</span></div>`).join('');
   showOverlay(`<h2>原版关卡资料</h2>
     <div class="sub">从 APK 提取的全部 ${data.count} 份 TextAsset（关卡 / 自定义关卡 / 配置）。可直接查看原始 JSON 文本。</div>
