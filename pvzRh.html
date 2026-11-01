@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>植物大战僵尸 RH · 网页复刻版</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="stage">
+    <canvas id="game" width="1416" height="616"></canvas>
+    <div id="loading"><div class="load-inner"><div class="load-title">植物大战僵尸 RH</div><div class="load-sub">正在读取资源…</div><div class="bar"><i></i></div></div></div>
+    <div id="overlay" class="hidden">
+      <div class="panel">
+        <button id="panelClose" title="关闭">×</button>
+        <div id="panelContent"></div>
+      </div>
+    </div>
+  </div>
+  <script src="data/levels.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
