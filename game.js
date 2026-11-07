@@ -21,8 +21,8 @@ const FONT = '"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif';
 
 /* ============ 植物定义（数值参照原版 PvZ 体系） ============ */
 const PLANTS = {
-  sunflower:  { name:'向日葵', family:'producer', cost:50,  cd:7.5, hp:300, produce:25, interval:24,
-                desc:'每 24 秒产出 25 阳光，是草坪经济的基础。' },
+  sunflower:  { name:'向日葵', family:'producer', cost:50,  cd:7.5, hp:300, produce:25, interval:20,
+                desc:'每 20 秒产出 25 阳光，是草坪经济的基础。' },
   peashooter: { name:'豌豆射手', family:'shooter', cost:100, cd:7, hp:300, damage:20, interval:1.4,
                 desc:'向本行发射豌豆，基础攻击植物。' },
   snowpea:    { name:'寒冰射手', family:'shooter', cost:175, cd:7, hp:300, damage:20, interval:1.5, slow:true,
@@ -85,35 +85,40 @@ const PLANTS = {
 
 /* ============ 僵尸定义 ============ */
 const ZOMBIES = {
-  normal:  { name:'普通僵尸', hp:220,  speed:22, dps:40, scale:1.00, armor:null },
-  flag:    { name:'旗帜僵尸', hp:220,  speed:27, dps:40, scale:1.00, armor:null },
-  cone:    { name:'路障僵尸', hp:620,  speed:22, dps:40, scale:1.02, armor:{amount:350, type:'cone'} },
-  bucket:  { name:'铁桶僵尸', hp:1300, speed:20, dps:44, scale:1.04, armor:{amount:800, type:'bucket'} },
-  door:    { name:'铁门僵尸', hp:300,  speed:20, dps:44, scale:1.03, armor:{amount:1000, type:'door'} },
-  football:{ name:'橄榄球僵尸', hp:1700, speed:42, dps:70, scale:1.10, armor:null },
-  pole:    { name:'撑杆僵尸', hp:500,  speed:36, dps:40, scale:1.04, vault:true },
-  pogo:    { name:'跳跳僵尸', hp:520,  speed:46, dps:40, scale:1.02, hop:true }
+  normal:  { name:'普通僵尸', hp:220,  speed:20, dps:36, scale:1.00, armor:null },
+  flag:    { name:'旗帜僵尸', hp:220,  speed:24, dps:36, scale:1.00, armor:null },
+  cone:    { name:'路障僵尸', hp:620,  speed:20, dps:36, scale:1.02, armor:{amount:350, type:'cone'} },
+  bucket:  { name:'铁桶僵尸', hp:1300, speed:19, dps:38, scale:1.04, armor:{amount:800, type:'bucket'} },
+  door:    { name:'铁门僵尸', hp:300,  speed:19, dps:38, scale:1.03, armor:{amount:1000, type:'door'} },
+  football:{ name:'橄榄球僵尸', hp:1500, speed:34, dps:50, scale:1.10, armor:null },
+  pole:    { name:'撑杆僵尸', hp:480,  speed:26, dps:36, scale:1.04, vault:true },
+  pogo:    { name:'跳跳僵尸', hp:500,  speed:30, dps:36, scale:1.02, hop:true }
 };
 
-/* ============ 关卡（三个世界，共 15 关） ============ */
+/* ============ 关卡（按原版冒险模式主关卡结构编排） ============
+   白天 5 关 → 夜晚 4 关 → 泳池 4 关 → 终局 2 关
+   - prep：开局无僵尸的准备时间（原版第一波前留足布防时间）
+   - gap ：普通波次间隔，随波次推进略微缩短
+   - zombies：按由弱到强排序，波次越高才会出现更强的僵尸
+   - sun ：初始阳光，保证开局能立刻种下 2~3 株向日葵完成经济启动
+================================================================ */
 const LEVELS = [
-  { id:'1-1', title:'白天 · 草坪', world:'day',   waves:8,  sun:75,  tier:2, seeds:['sunflower','peashooter','wallnut','potato'] },
-  { id:'1-2', title:'白天 · 草坪', world:'day',   waves:10, sun:50,  tier:2, seeds:['sunflower','peashooter','wallnut','potato','snowpea','cherry'] },
-  { id:'1-3', title:'白天 · 草坪', world:'day',   waves:12, sun:50,  tier:3, seeds:['sunflower','peashooter','wallnut','snowpea','cabbagepult','squash'] },
-  { id:'1-4', title:'白天 · 草坪', world:'day',   waves:14, sun:50,  tier:4, seeds:['sunflower','peashooter','wallnut','gatling','tallnut','jalapeno','spikerock'] },
-  { id:'1-5', title:'白天 · 草坪', world:'day',   waves:16, sun:50,  tier:5, seeds:['sunflower','peashooter','threepeater','torchwood','melonpult','wallnut','cherry','spikerock'] },
-  { id:'2-1', title:'夜晚 · 墓地', world:'night', waves:9,  sun:50,  tier:2, seeds:['sunflower','peashooter','fume','scaredy','wallnut','iceshroom'] },
-  { id:'2-2', title:'夜晚 · 墓地', world:'night', waves:11, sun:50,  tier:3, seeds:['sunflower','peashooter','fume','scaredy','wallnut','iceshroom','magnet'] },
-  { id:'2-3', title:'夜晚 · 墓地', world:'night', waves:13, sun:50,  tier:4, seeds:['sunflower','peashooter','fume','chomper','wallnut','iceshroom','magnet','cherry'] },
-  { id:'2-4', title:'夜晚 · 墓地', world:'night', waves:15, sun:50,  tier:5, seeds:['sunflower','peashooter','fume','chomper','wallnut','iceshroom','magnet','gatling','cherry'] },
-  { id:'3-1', title:'泳池 · 水面', world:'pool',  waves:10, sun:100, tier:3, seeds:['lilypad','seashroom','sunflower','peashooter','wallnut','cherry','tanglekelp'] },
-  { id:'3-2', title:'泳池 · 水面', world:'pool',  waves:12, sun:100, tier:4, seeds:['lilypad','seashroom','sunflower','peashooter','wallnut','cherry','tanglekelp','melonpult'] },
-  { id:'3-3', title:'泳池 · 水面', world:'pool',  waves:14, sun:100, tier:5, seeds:['lilypad','seashroom','sunflower','peashooter','wallnut','cherry','tanglekelp','melonpult','torchwood'] },
-  { id:'3-4', title:'泳池 · 水面', world:'pool',  waves:16, sun:100, tier:6, seeds:['lilypad','seashroom','sunflower','peashooter','threepeater','wallnut','cherry','tanglekelp','melonpult','gatling'] },
-  { id:'4-1', title:'白天 · 草坪', world:'day',   waves:18, sun:50,  tier:6, seeds:['sunflower','peashooter','gatling','threepeater','torchwood','melonpult','wallnut','cherry','spikerock'] },
-  { id:'4-2', title:'夜晚 · 墓地', world:'night', waves:20, sun:50,  tier:7, seeds:['sunflower','peashooter','gatling','fume','chomper','iceshroom','magnet','wallnut','cherry','starfruit'] }
+  { id:'1-1', title:'白天 · 草坪', world:'day',   waves:6,  sun:150, prep:28, gap:26, zombies:['normal'],                                  seeds:['sunflower','peashooter','wallnut','potato'] },
+  { id:'1-2', title:'白天 · 草坪', world:'day',   waves:8,  sun:150, prep:26, gap:25, zombies:['normal','cone'],                            seeds:['sunflower','peashooter','wallnut','potato','snowpea','cherry'] },
+  { id:'1-3', title:'白天 · 草坪', world:'day',   waves:10, sun:175, prep:26, gap:24, zombies:['normal','cone'],                            seeds:['sunflower','peashooter','wallnut','snowpea','cabbagepult','squash'] },
+  { id:'1-4', title:'白天 · 草坪', world:'day',   waves:12, sun:175, prep:24, gap:23, zombies:['normal','cone','bucket'],                      seeds:['sunflower','peashooter','wallnut','gatling','tallnut','jalapeno','spikerock'] },
+  { id:'1-5', title:'白天 · 草坪', world:'day',   waves:12, sun:200, prep:24, gap:23, zombies:['normal','cone','bucket','pole'],               seeds:['sunflower','peashooter','threepeater','torchwood','melonpult','wallnut','cherry','spikerock'] },
+  { id:'2-1', title:'夜晚 · 墓地', world:'night', waves:8,  sun:175, prep:28, gap:26, zombies:['normal','cone'],                            seeds:['sunflower','peashooter','fume','scaredy','wallnut','iceshroom'] },
+  { id:'2-2', title:'夜晚 · 墓地', world:'night', waves:10, sun:200, prep:26, gap:25, zombies:['normal','cone','bucket'],                      seeds:['sunflower','peashooter','fume','scaredy','wallnut','iceshroom','magnet'] },
+  { id:'2-3', title:'夜晚 · 墓地', world:'night', waves:12, sun:200, prep:26, gap:24, zombies:['normal','cone','bucket','door'],                seeds:['sunflower','peashooter','fume','chomper','wallnut','iceshroom','magnet','cherry'] },
+  { id:'2-4', title:'夜晚 · 墓地', world:'night', waves:14, sun:225, prep:24, gap:23, zombies:['normal','cone','bucket','door'],                seeds:['sunflower','peashooter','fume','chomper','wallnut','iceshroom','magnet','gatling','cherry'] },
+  { id:'3-1', title:'泳池 · 水面', world:'pool',  waves:9,  sun:225, prep:28, gap:26, zombies:['normal','cone'],                            seeds:['lilypad','seashroom','sunflower','peashooter','wallnut','cherry','tanglekelp'] },
+  { id:'3-2', title:'泳池 · 水面', world:'pool',  waves:11, sun:250, prep:26, gap:25, zombies:['normal','cone','bucket','pole'],               seeds:['lilypad','seashroom','sunflower','peashooter','wallnut','cherry','tanglekelp','melonpult'] },
+  { id:'3-3', title:'泳池 · 水面', world:'pool',  waves:13, sun:275, prep:26, gap:24, zombies:['normal','cone','bucket','door','pole'],         seeds:['lilypad','seashroom','sunflower','peashooter','wallnut','cherry','tanglekelp','melonpult','torchwood'] },
+  { id:'3-4', title:'泳池 · 水面', world:'pool',  waves:15, sun:300, prep:24, gap:23, zombies:['normal','cone','bucket','door','pole'],         seeds:['lilypad','seashroom','sunflower','peashooter','threepeater','wallnut','cherry','tanglekelp','melonpult','gatling'] },
+  { id:'4-1', title:'白天 · 草坪', world:'day',   waves:12, sun:300, prep:26, gap:23, zombies:['normal','cone','bucket','pole'],               seeds:['sunflower','peashooter','gatling','threepeater','torchwood','melonpult','wallnut','cherry','spikerock'] },
+  { id:'4-2', title:'夜晚 · 墓地', world:'night', waves:14, sun:325, prep:26, gap:23, zombies:['normal','cone','bucket','pole','football'],      seeds:['sunflower','peashooter','gatling','fume','chomper','iceshroom','magnet','wallnut','cherry','starfruit'] }
 ];
-const ZROSTER = ['normal','cone','flag','bucket','door','pole','football','pogo'];
 
 /* ============ 资源加载 ============ */
 const IMG = { plants:{}, zombies:{}, ui:{}, bg:{} };
@@ -240,9 +245,9 @@ function makeGame(levelIndex) {
     sun: cfg.sun, plants: [], zombies: [], projectiles: [], suns: [], particles: [], mowers: [],
     seeds: cfg.seeds.map(k => ({ key: k, cd: 0, cost: PLANTS[k].cost })),
     selected: -1, shovel: false,
-    waveIndex: 0, waveTimer: 12, spawnQueue: [], waveGap: Math.max(16, 25 - cfg.tier*1.1),
+    waveIndex: 0, waveTimer: cfg.prep || 24, spawnQueue: [], waveGap: cfg.gap || 20,
     huge: false, banner: null, bannerT: 0,
-    paused: false, over: null, time: 0, naturalSun: 9, shootSfx: 0,
+    paused: false, over: null, time: 0, naturalSun: 6, shootSfx: 0,
     hoverCell: null, screenShake: 0, finalMusic: false,
     mowersInit: true
   };
@@ -291,10 +296,10 @@ function g_update(dt) {
   g.time += dt;
   g.screenShake = Math.max(0, g.screenShake - dt*30);
 
-  // 自然阳光
+  // 自然阳光（白天更快，夜晚稍慢，保证任何关卡都能正常启动经济）
   g.naturalSun -= dt;
   if (g.naturalSun <= 0) {
-    g.naturalSun = (g.world === 'night' ? 11 : 8) + Math.random()*2;
+    g.naturalSun = (g.world === 'night' ? 8 : 6) + Math.random()*2;
     spawnSkySun(g);
   }
 
@@ -385,8 +390,13 @@ function updateWaves(g, dt) {
     spawnWave(g, g.waveIndex, isFinal);
     g.waveIndex++;
     g.lastWaveTime = g.time;
-    g.waveGap = Math.max(13, 24 - g.cfg.tier*1.2) + (isFinal ? 99 : 0);
-    g.waveTimer = g.waveGap;
+    if (isFinal) {
+      g.waveTimer = 9999; // 最终波后不再刷新，清场即通关
+    } else {
+      // 原版节奏：前几波间隔更长，随后逐步加快，但始终给玩家留出补防时间
+      const ramp = Math.max(0, 4 - g.waveIndex * 0.35);
+      g.waveTimer = Math.max(17, (g.cfg.gap || 24) + ramp) + Math.random() * 3;
+    }
     if (isFinal) {
       g.huge = true;
       g.banner = { text: '一大波僵尸正在接近！', sub: '最终波 · FINAL WAVE', t: 3.4 };
@@ -398,25 +408,41 @@ function updateWaves(g, dt) {
       g.banner = { text: '僵尸潮来袭！', sub: `第 ${g.waveIndex} 波 / 共 ${g.cfg.waves} 波`, t: 2.2 };
       g.bannerT = 2.2;
       sfx('FinalWave', 0.6);
+    } else if (g.waveIndex === 1) {
+      g.banner = { text: '僵尸来了！', sub: '守住草坪，别让它们走到房子前', t: 2.0 };
+      g.bannerT = 2.0;
+      sfx('FinalWave', 0.45);
     }
   }
 }
 
 function spawnWave(g, wave, isFinal) {
-  const tier = Math.min(g.cfg.tier, ZROSTER.length);
-  const allowed = ZROSTER.slice(0, tier);
-  const base = Math.round(2 + wave * 0.8 + g.levelIndex * 0.35 + (isFinal ? 5 : 0));
-  const count = Math.min(isFinal ? 22 : 12, base);
+  const cfg = g.cfg;
+  const flagWave = !isFinal && (wave + 1) % 5 === 0;
+  // 原版节奏：单波数量缓慢增长，第 5/10 波为旗帜大波，最终波最大
+  let count = 1 + Math.floor(wave * 0.35) + Math.floor(g.levelIndex * 0.08);
+  if (flagWave) count = Math.round(count * 1.4) + 1;
+  if (isFinal) count = Math.round(count * 1.6) + 2;
+  count = Math.max(1, Math.min(14, count));
+
+  const poolList = cfg.zombies.filter(t => t !== 'flag');
+  const maxTier = Math.min(poolList.length - 1, Math.floor(wave / 3) + (isFinal ? 2 : 0));
+  let offset = 0;
   for (let i = 0; i < count; i++) {
-    let t;
-    if (isFinal && i % 7 === 0) t = 'football';
-    else if (wave >= 5 && i % 6 === 0 && allowed.includes('bucket')) t = 'bucket';
-    else t = allowed[Math.floor(Math.random()*allowed.length)];
-    const row = Math.floor(Math.random()*LAWN.rows);
-    g.spawnQueue.push({ t: i*0.5 + Math.random()*0.6, type: t, row });
+    let type;
+    if (wave === 0) type = poolList[0];
+    else type = poolList[Math.floor(Math.random() * (maxTier + 1))];
+    // 最终波开头安排一只精英压阵
+    if (isFinal && i === 0 && poolList.length > 2) type = poolList[poolList.length - 1];
+    const row = Math.floor(Math.random() * LAWN.rows);
+    g.spawnQueue.push({ t: offset, type, row });
+    // 僵尸逐个上场，而不是一次性扎堆
+    offset += 1.6 + Math.random() * 1.4;
   }
-  // 旗帜僵尸领队
-  if (wave === 0 || wave % 5 === 4) g.spawnQueue.unshift({ t: 0, type:'flag', row: Math.floor(Math.random()*5) });
+  // 旗帜僵尸领队（旗帜波与最终波）
+  if (flagWave || isFinal) {
+    g.spawnQueue.unshift({ t: 0, type: 'flag', row: Math.floor(Math.random() * LAWN.rows) });
+  }
 }
 
 function spawnZombie(g, type, row) {
@@ -1375,7 +1401,7 @@ function loop(ts) {
   if (!last) last = ts;
   let dt = (ts - last)/1000;
   last = ts;
-  dt = Math.min(dt, 0.05);
+  dt = Math.max(0, Math.min(dt, 0.05));
   menuTime += dt;
 
   if (state === 'playing' && game) {

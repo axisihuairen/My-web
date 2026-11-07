@@ -40,4 +40,9 @@ html,body{width:100%;height:100%;background:#120c08;overflow:hidden;font-family:
 #lvViewer .hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;color:#ffd97a;font-size:18px}
 #lvViewer button{background:#3a2a17;border:1px solid #c9a45c;color:#f5d76e;border-radius:8px;padding:8px 16px;cursor:pointer}
 #lvViewer pre{flex:1;overflow:auto;background:#0d0905;border:1px solid #4a3719;border-radius:8px;padding:14px;color:#cfc0a0;font-size:13px;line-height:1.6;white-space:pre-wrap;word-break:break-all}
+.cheatGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:8px;margin:6px 0 4px}
+.cheatRow{display:flex;align-items:center;gap:12px;background:#2e2012;border:1px solid #5e4724;border-radius:8px;padding:9px 12px}
+.cheatRow code{background:#160f08;color:#ffd97a;border:1px solid #6d5127;border-radius:6px;padding:3px 8px;font-family:Consolas,monospace;font-size:14px;white-space:nowrap}
+.cheatRow span{color:#e7d7b6;font-size:14px}
+#panelContent code{background:#3a2a17;color:#ffd97a;border-radius:4px;padding:1px 5px;font-family:Consolas,monospace}
 @media (max-width:720px){ .panel{height:92vh} #panelContent{padding:18px} .plantGrid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))} .pcard img{width:52px;height:52px;flex-basis:52px} }
